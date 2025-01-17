@@ -11,16 +11,17 @@ print((my_dict['tuple'])[-1])
 # 2.1 Удаление второго элемента из списка (список является значением для ключа "list"):
 (my_dict['list']).pop(1)
 # 3. Добавление ключа в словарь (словарь является значением для ключа 'dict'):
-(my_dict['dict'])['i am a tuple'] = (445, 53, 543)
+(my_dict['dict'])[('i am a tuple',)] = "test2"
 # 3.1 Удаление элемента (значения) из словаря (словарь является значением для ключа 'dict'):
 (my_dict['dict']).pop('one')
 # 4. Добавление элемента в множество (множество является значением для ключа 'set'):
 (my_dict['set']).add(777)
 # 4.1 Удаление элемента из множества (множество является значением для ключа 'set'):
-my_dict['set'] = list(my_dict['set'])
-print(my_dict['set'])
-my_dict['set'].pop(0)
-print(my_dict['set'])
-my_dict['set'] = set(my_dict['set'])
+my_dict['set'].pop()
+# my_dict['set'] = list(my_dict['set'])
+# print(my_dict['set'])
+# my_dict['set'].pop(0)
+# print(my_dict['set'])
+# my_dict['set'] = set(my_dict['set'])
 # Вывод всего словаря
 print(my_dict)
