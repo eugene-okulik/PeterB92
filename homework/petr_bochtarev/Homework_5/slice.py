@@ -15,7 +15,7 @@ print((int(three[three.index('9'):])) + 10)
 students = ['Ivanov', 'Petrov', 'Sidorov']
 subjects = ['math', 'biology', 'geography']
 # Вариант 1
-print('Students', ', '.join(students),'study these subjects:', ', '.join(subjects))
+print('Students', ', '.join(students), 'study these subjects:', ', '.join(subjects))
 # Вариант 2
 students1, students2, students3 = students
 subjects1, subjects2, subjects3 = subjects
