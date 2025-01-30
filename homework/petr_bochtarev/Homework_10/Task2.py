@@ -52,7 +52,7 @@ def repeat_me(count):
     def decorator_test(func):
         def wrapper(*args, **kwargs):
             for x in range(count):
-                result = func(*args, **kwargs)
+                func(*args, **kwargs)
         return wrapper
     return decorator_test
 

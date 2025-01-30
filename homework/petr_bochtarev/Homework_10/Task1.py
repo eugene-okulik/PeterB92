@@ -1,6 +1,6 @@
 def decorator_finish(func):
     def wrapper(*args):
-        result = func(*args)
+        func(*args)
         print('finished')
     return wrapper
 

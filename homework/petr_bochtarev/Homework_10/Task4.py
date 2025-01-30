@@ -16,7 +16,7 @@ new_list = PRICE_LIST.split()
 #     if new_list.index(x) % 2 == 0:
 #         goods.append(x)
 # =====Фильтр и лямбда для тренировки=====
-#goods = list(filter(lambda x: new_list.index(x) % 2 == 0, new_list))
+# goods = list(filter(lambda x: new_list.index(x) % 2 == 0, new_list))
 
 goods = [x for x in new_list if new_list.index(x) % 2 == 0]
 
@@ -25,7 +25,7 @@ goods = [x for x in new_list if new_list.index(x) % 2 == 0]
 #     if new_list.index(x) % 2 != 0:
 #         price.append(int(x[:-1]))
 # =====Фильтр и лямбда для тренировки, НО НЕ ПОНЯЛ, КУДА ВСТАВИТЬ (int(x[:-1])) вместо х после lambda не дает=====
-#price = list(filter(lambda x: new_list.index(x) % 2 != 0, new_list))
+# price = list(filter(lambda x: new_list.index(x) % 2 != 0, new_list))
 
 price = [(int(x[:-1])) for x in new_list if new_list.index(x) % 2 != 0]
 list_goods_price = dict(zip(goods, price))
