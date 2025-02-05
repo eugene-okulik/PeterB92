@@ -10,17 +10,26 @@ class Flowers:
         self.freshness = freshness
         self.stem_length = stem_length
 
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
+
 
 class Roses(Flowers):
-    pass
+    def __init__(self, price, color, withering_time, freshness, stem_length):
+        super().__init__('Роза', price, color, withering_time, freshness, stem_length)
 
 
 class Tulips(Flowers):
-    pass
+    def __init__(self, price, color, withering_time, freshness, stem_length):
+        super().__init__('Тюльпан', price, color, withering_time, freshness, stem_length)
 
 
 class Lilies(Flowers):
-    pass
+    def __init__(self, price, color, withering_time, freshness, stem_length):
+        super().__init__('Лилия', price, color, withering_time, freshness, stem_length)
 
 
 class Bouquet:
@@ -36,36 +45,39 @@ class Bouquet:
     def withering_time(self):
         return mean(flower.withering_time for flower in self.flowers)
 
+    # def for_filtering(flower):         Для примера, чтобы ниже в lambda использовать
+    #     return flower.sort_freshness
+
     def sort_freshness(self):
-        return sorted(flower.freshness for flower in self.flowers)
+        return sorted(self.flowers, key=lambda flower: flower.freshness)
 
     def sort_stem_length(self):
-        return sorted(flower.stem_length for flower in self.flowers)
+        return sorted(self.flowers, key=lambda flower: flower.stem_length)
 
     def sort_color(self):
-        return sorted(flower.color for flower in self.flowers)
+        return sorted(self.flowers, key=lambda flower: flower.color)
 
     def sort_price(self):
-        return sorted(flower.price for flower in self.flowers)
+        return sorted(self.flowers, key=lambda flower: flower.price)
 
     def search_flower(self, withering):
         # for flower in self.flowers:
         #     if withering == flower.withering_time:
         #         list_flowers.append(flower.name)
-        list_flowers = [flower.name for flower in self.flowers if withering == flower.withering_time]
+        list_flowers = [flower for flower in self.flowers if withering == flower.withering_time]
         if list_flowers:
             print(f'Найдены цветы: {list_flowers}')
         else:
             print('Необходимые цветы в букете не обнаружены')
 
 
-rose_white = Roses('Роза', 150, 'Белый', 3, '90%', '30см')
-chinese_rose = Roses('Роза', 200, 'Красный', 4, '89%', '40см')
-damask_rose = Roses('Роза', 250, 'Розовый', 2, '91%', '45см')
-green_tulips = Tulips('Тюльпан', 90, 'Зеленый', 3, '78%', '37см')
-fringed_tulips = Tulips('Тюльпан', 120, 'Желтый', 7, '98%', '38см')
-golden_lily = Lilies('Лилия', 120, 'Золотой', 9, '59%', '41см')
-orange_lilies = Lilies('Лилия', 140, 'Оранжевый', 8, '88%', '35см')
+rose_white = Roses(150, 'Белый', 3, '90%', '30см')  #######
+chinese_rose = Roses(200, 'Красный', 4, '89%', '40см')
+damask_rose = Roses(250, 'Розовый', 2, '91%', '45см')
+green_tulips = Tulips(90, 'Зеленый', 3, '78%', '37см')  ######
+fringed_tulips = Tulips(120, 'Желтый', 7, '98%', '38см')
+golden_lily = Lilies(120, 'Золотой', 9, '59%', '41см')  ########
+orange_lilies = Lilies(140, 'Оранжевый', 8, '88%', '35см')
 
 boquet1 = Bouquet()
 boquet1.add_flower(rose_white)
