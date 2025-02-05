@@ -71,12 +71,12 @@ class Bouquet:
             print('Необходимые цветы в букете не обнаружены')
 
 
-rose_white = Roses(150, 'Белый', 3, '90%', '30см')  #######
+rose_white = Roses(150, 'Белый', 3, '90%', '30см')
 chinese_rose = Roses(200, 'Красный', 4, '89%', '40см')
 damask_rose = Roses(250, 'Розовый', 2, '91%', '45см')
-green_tulips = Tulips(90, 'Зеленый', 3, '78%', '37см')  ######
+green_tulips = Tulips(90, 'Зеленый', 3, '78%', '37см')
 fringed_tulips = Tulips(120, 'Желтый', 7, '98%', '38см')
-golden_lily = Lilies(120, 'Золотой', 9, '59%', '41см')  ########
+golden_lily = Lilies(120, 'Золотой', 9, '59%', '41см')
 orange_lilies = Lilies(140, 'Оранжевый', 8, '88%', '35см')
 
 boquet1 = Bouquet()
