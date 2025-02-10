@@ -16,7 +16,7 @@ with open(hw13_file_path, 'rb') as file:
 with open(hw13_file_path, encoding=encoding) as file:
     task_file = file.read()
     print(task_file)
-print('='*70)
+print('=' * 70)
 # Основная часть ДЗ
 with open(hw13_file_path) as file:
     for line in file:
