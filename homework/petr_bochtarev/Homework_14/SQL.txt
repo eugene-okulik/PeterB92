@@ -1,0 +1,26 @@
+/*1.*/ INSERT INTO students (name, second_name) VALUE ('Petr', 'Bochtarev'); -- 4290
+/*2.*/ INSERT INTO books (title, taken_by_student_id) VALUE ('Гамлет', 4290), ('Одиссея', 4290); -- 6293, 6294
+/*3.*/ INSERT INTO `groups` (title, start_date, end_date) VALUE ('Краснодар', '2024-11-02 23:00:00.000000', '2024-11-02 23:10:00.000000'); -- 2694
+/*3.1*/ UPDATE students SET group_id = 2694 WHERE id = 4290;
+/*4*/ INSERT INTO subjets (title) VALUE ('Химия'), ('Информатика'); -- 4311, 4312
+/*5*/ INSERT INTO lessons (title, subject_id)
+      VALUE ('Органическая химия', 4311), -- 8044
+           ('Неорганическая химия', 4311), -- 8045
+           ('Основый python', 4312), -- 8046
+           ('SQL', 4312) ; -- 8047
+/*6*/ INSERT INTO marks (value, lesson_id, student_id)
+      VALUE ('4', 8044, 4290), -- 6315
+           ('4', 8045, 4290), -- 6316
+           ('5', 8046, 4290), -- 6317
+           ('5', 8047, 4290); -- 6318
+-- Полученная информация из БД --
+/*1*/ SELECT value FROM marks WHERE student_id = 4290;
+/*2*/ SELECT title FROM books WHERE taken_by_student_id = 4290;
+/*3*/ SELECT s.name Имя, s.second_name Фамилия, g.title Группа, m.value Оценка_за_урок, l.title Название_занятия, s2.title Предмет, b.title Книга
+      FROM students s
+      JOIN marks m ON s.id = m.student_id
+      JOIN `groups` as g  ON g.id = s.group_id
+      JOIN lessons l on m.lesson_id = l.id
+      JOIN subjets s2 on l.subject_id = s2.id
+      JOIN books b ON s.id = b.taken_by_student_id -- Из-за добавления книг, происходит дублирование строк
+      WHERE s.id = 4290;
