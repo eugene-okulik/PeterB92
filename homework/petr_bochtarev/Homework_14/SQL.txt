@@ -6,7 +6,7 @@
 /*5*/ INSERT INTO lessons (title, subject_id)
       VALUE ('Органическая химия', 4311), -- 8044
            ('Неорганическая химия', 4311), -- 8045
-           ('Основый python', 4312), -- 8046
+           ('Основы python', 4312), -- 8046
            ('SQL', 4312) ; -- 8047
 /*6*/ INSERT INTO marks (value, lesson_id, student_id)
       VALUE ('4', 8044, 4290), -- 6315
