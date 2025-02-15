@@ -53,7 +53,7 @@ print(cursor.fetchall())
 cursor.execute("SELECT title FROM books WHERE taken_by_student_id = 4318")
 print(cursor.fetchall())
 all_info = '''
-SELECT s.name Имя, s.second_name Фамилия, g.title Группа, m.value Оценка_за_урок, l.title Название_занятия, 
+SELECT s.name Имя, s.second_name Фамилия, g.title Группа, m.value Оценка_за_урок, l.title Название_занятия,
 s2.title Предмет, b.title Книга
 FROM students s
 JOIN marks m ON s.id = m.student_id
