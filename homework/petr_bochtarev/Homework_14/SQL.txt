@@ -1,15 +1,15 @@
-/*1.*/ INSERT INTO students (name, second_name) VALUE ('Petr', 'Bochtarev'); -- 4290
-/*2.*/ INSERT INTO books (title, taken_by_student_id) VALUE ('Гамлет', 4290), ('Одиссея', 4290); -- 6293, 6294
-/*3.*/ INSERT INTO `groups` (title, start_date, end_date) VALUE ('Краснодар', '2024-11-02 23:00:00.000000', '2024-11-02 23:10:00.000000'); -- 2694
+/*1.*/ INSERT INTO students (name, second_name) VALUES ('Petr', 'Bochtarev'); -- 4290
+/*2.*/ INSERT INTO books (title, taken_by_student_id) VALUES ('Гамлет', 4290), ('Одиссея', 4290); -- 6293, 6294
+/*3.*/ INSERT INTO `groups` (title, start_date, end_date) VALUES ('Краснодар', '2024-11-02 23:00:00.000000', '2024-11-02 23:10:00.000000'); -- 2694
 /*3.1*/ UPDATE students SET group_id = 2694 WHERE id = 4290;
-/*4*/ INSERT INTO subjets (title) VALUE ('Химия'), ('Информатика'); -- 4311, 4312
+/*4*/ INSERT INTO subjets (title) VALUES ('Химия'), ('Информатика'); -- 4311, 4312
 /*5*/ INSERT INTO lessons (title, subject_id)
-      VALUE ('Органическая химия', 4311), -- 8044
+      VALUES ('Органическая химия', 4311), -- 8044
            ('Неорганическая химия', 4311), -- 8045
            ('Основы python', 4312), -- 8046
            ('SQL', 4312) ; -- 8047
 /*6*/ INSERT INTO marks (value, lesson_id, student_id)
-      VALUE ('4', 8044, 4290), -- 6315
+      VALUES ('4', 8044, 4290), -- 6315
            ('4', 8045, 4290), -- 6316
            ('5', 8046, 4290), -- 6317
            ('5', 8047, 4290); -- 6318
