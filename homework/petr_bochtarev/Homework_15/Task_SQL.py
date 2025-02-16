@@ -48,9 +48,9 @@ cursor.executemany(
     ]
 )
 db.commit()
-cursor.execute("SELECT value FROM marks WHERE student_id = 4318")
+cursor.execute("SELECT value FROM marks WHERE student_id = %s", (student_id,))
 print(cursor.fetchall())
-cursor.execute("SELECT title FROM books WHERE taken_by_student_id = 4318")
+cursor.execute("SELECT title FROM books WHERE taken_by_student_id = %s", (student_id,))
 print(cursor.fetchall())
 all_info = '''
 SELECT s.name Имя, s.second_name Фамилия, g.title Группа, m.value Оценка_за_урок, l.title Название_занятия,
@@ -61,8 +61,8 @@ JOIN `groups` as g  ON g.id = s.group_id
 JOIN lessons l on m.lesson_id = l.id
 JOIN subjets s2 on l.subject_id = s2.id
 JOIN books b ON s.id = b.taken_by_student_id -- Из-за добавления книг, происходит дублирование строк
-WHERE s.id = 4318;
+WHERE s.id = %s;
 '''
-cursor.execute(all_info)
+cursor.execute(all_info, (student_id,))
 print(cursor.fetchall())
 db.close()
