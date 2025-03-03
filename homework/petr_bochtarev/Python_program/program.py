@@ -16,8 +16,11 @@ def read_all_files_in_directory(files_path):
                 yield line.strip(), file_name, number_line
 
 
+punctuation_to_remove = punctuation.replace('_', '')
 for line_file, name_file, line_number in read_all_files_in_directory(args.directory):
-    string_without_punctuation = line_file.translate(str.maketrans('', '', punctuation))  # Удаляю все знаки пунктуации
+    string_without_punctuation = (
+        line_file.translate(str.maketrans('', '', punctuation_to_remove))  # Удаляю все знаки пунктуации кроме '_'
+    )
     words = string_without_punctuation.split()
     if args.text in words:
         index_args_text = words.index(args.text)
