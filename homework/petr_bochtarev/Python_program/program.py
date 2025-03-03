@@ -27,7 +27,7 @@ for line_file, name_file, line_number in read_all_files_in_directory(args.direct
         start_index = max(0, index_args_text - 5)
         end_index = index_args_text + 6
         five_words_before_five_words_after = (
-                words[start_index:index_args_text] + [f'*{args.text.upper()}*'] + words[(index_args_text + 1):end_index]
+            words[start_index:index_args_text] + [f'*{args.text.upper()}*'] + words[(index_args_text + 1):end_index]
         )
         print('*' * 100)
         print(f'Название файла, в котором найдено совпадение: {name_file}')
