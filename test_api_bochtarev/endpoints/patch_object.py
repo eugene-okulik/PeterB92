@@ -3,13 +3,13 @@ import allure
 from endpoints.endpoint import Endpoint
 
 
-class UpdatePost(Endpoint):
+class PatchObject(Endpoint):
 
     @allure.step('Обновление объекта')
-    def update_post(self, create, body, headers=None):
+    def patch_object(self, create_deleted, body, headers=None):
         headers = headers if headers else self.headers
-        self.response = requests.put(
-            f'{self.url}/{create}',
+        self.response = requests.patch(
+            f'{self.url}/{create_deleted}',
             json=body,
             headers=headers
         )
